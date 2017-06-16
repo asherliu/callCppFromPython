@@ -15,7 +15,12 @@ class Foo(object):
 		lib.adder(pointer_arr, count);
 
 def main():
-	f = Foo();
-	f.bar()
+#	f = Foo();
+#	f.bar()
+	import sys
+	for fname in sys.argv[1:]:
+		with open(fname, "rb") as f:
+			(r, s, M, M_r_row, M_s_row, M_r_col, M_s_col, d_out, d_in, d_out_new, d_in_new) = pickle.load(f)
+			print r;
 
 if __name__ == '__main__': main()
